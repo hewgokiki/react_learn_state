@@ -1,6 +1,7 @@
+"use client"
 import React, { Component } from 'react'
 //import { useRouter } from 'next/navigation'
-import { withRouter } from 'next/router'
+import {Routes, Route, useNavigate, Link} from 'react-router-dom';
 //import { withRouter } from 'react-router-dom'
 
 class Search extends Component {
@@ -47,22 +48,25 @@ class Search extends Component {
     }
 
     goToTestPage = () => {
-        const { router } = this.props
+        // const { router } = this.props
         //const { router } = useRouter()
-        console.log('router ',{ router })
-        router.push('/test')
+        // router.push('/test')
+        // console.log('router ',{ router })
+        navigate('/test');
     }
 
     render() {
         console.log("this state render ",this.state)
         return (
+            <>
             <div>
                 {this.props.children} <input type='text'value={this.state.textSearch} onChange={this.handleChangeText}/>
                 <button onClick={this.goToTestPage}>go to test page</button>
             </div>
+            </>
         )
     }
 }
 
-export default withRouter(Search)
+export default Search
 //export default Search
